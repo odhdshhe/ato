@@ -1,17 +1,13 @@
-local CoreGui = game:GetService("StarterGui")
+if getgenv().ED_AntiKick then
+	return
+end
 
-CoreGui:SetCore("SendNotification", {
-    Title = "冷",
-    Text = "正在加载（反挂机已开启）",
-    Duration = 5, 
-})
-print("反挂机开启")
-                local vu = game:GetService("VirtualUser")
-                game:GetService("Players").LocalPlayer.Idled:connect(function()
-                   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-                   wait(1)
-                   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
+getgenv().ED_AntiKick = {
+	Enabled = true, -- Set to false if you want to disable the Anti-Kick.
+	SendNotifications = true, -- Set to true if you want to get notified for every event
+	CheckCaller = true -- Set to true if you want to disable kicking by other executed scripts
+}
+
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/odhdshhe/lenglengui/refs/heads/main/JMJMUI.lua"))()        
 local win = ui:new("冷脚本")
 --
